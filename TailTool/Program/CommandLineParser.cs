@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using NDesk.Options;
 
 namespace TailTool
@@ -15,8 +12,9 @@ namespace TailTool
             var commandLineArguments = new CommandLineOptions();
 
             OptionSet = new OptionSet {
-   	            { "f=|folder=",        v => commandLineArguments.SearchFolder = v },
-                { "a=|antiWords=",     v => { commandLineArguments.SetAntiWords(v); }},
+   	            { "f=|folder=",     v => commandLineArguments.SearchFolder = v },
+                { "a=|antiWords=",  v => { commandLineArguments.SetAntiWords(v); }},
+                { "s|single",       v => commandLineArguments.SingleInstance = true },
    	            { "h|?|help",       v => commandLineArguments.ShowHelp = true },
                };
 

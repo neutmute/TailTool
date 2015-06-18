@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Kraken.Framework.Core;
 using Kraken.Framework.Core.Processes;
 using NLog;
@@ -32,7 +30,15 @@ namespace TailTool
                 var matchingFiles = fileFinder.FindMatches();
 
                 var wintail = new TailerProcess();
-                matchingFiles.OrderByDescending(x => x.FullName).ToList().ForEach(f => wintail.Start(f.FullName));
+
+                if (options.SingleInstance)
+                {
+                    wintail.Start(matchingFiles.OrderByDescending(x => x.FullName).Select(x => x.FullName).ToList());
+                }
+                else
+                {
+                    matchingFiles.OrderByDescending(x => x.FullName).ToList().ForEach(f => wintail.Start(f.FullName));
+                }
             }
 
         }

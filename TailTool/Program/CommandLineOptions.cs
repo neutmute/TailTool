@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace TailTool
 {
@@ -10,6 +9,8 @@ namespace TailTool
         public string SearchFolder { get; set; }
 
         public List<string> AntiWords { get; set; }
+
+        public bool SingleInstance { get; set; }
 
         public bool ShowHelp { get; set; }
 
