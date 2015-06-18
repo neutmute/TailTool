@@ -4,7 +4,6 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Kraken.Framework.Core.Processes
 {
@@ -19,6 +18,12 @@ namespace Kraken.Framework.Core.Processes
         public void Start(string logFile)
         {
             Arguments = string.Format("\"{0}\"", logFile);
+            Start();
+        }
+
+        public void Start(List<String> logFiles)
+        {
+            Arguments = String.Join(" ", logFiles.Select(l => string.Format("\"{0}\"", l)));
             Start();
         }
 
