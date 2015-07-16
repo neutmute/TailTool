@@ -22,7 +22,7 @@ namespace Kraken.Framework.Core
 
         public string SearchFolder { get; set; }
 
-        public string FilenamePattern { get; set; }
+        public List<string> FilenamePattern { get; set; }
 
         public List<string> AntiFilenamePattern { get; set; }
 
@@ -33,6 +33,7 @@ namespace Kraken.Framework.Core
         public HotFileFinder()
         {
             AntiFilenamePattern = new List<string>();
+            FilenamePattern = new List<string>();
         }
 
         #endregion
@@ -47,7 +48,14 @@ namespace Kraken.Framework.Core
                 return new List<FileInfo>();
             }
 
-            string[] files = Directory.GetFiles(SearchFolder, FilenamePattern, SearchOption.AllDirectories);
+            // Get all matching files
+            var files = new List<string>();
+            foreach(string filePattern in FilenamePattern)
+            {
+                files.AddRange(Directory.GetFiles(SearchFolder, filePattern, SearchOption.AllDirectories));
+            }
+
+            // Calculate hotlist of files
             List<FileInfo> hotList = new List<FileInfo>();
             foreach (string file in files)
             {
