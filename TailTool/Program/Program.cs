@@ -24,7 +24,7 @@ namespace TailTool
             else
             {
                 var fileFinder = new HotFileFinder();
-                fileFinder.FilenamePattern = "*.log";
+                fileFinder.FilenamePattern.AddRange(options.FileNameExtensions);
                 fileFinder.SearchFolder = options.SearchFolder;
                 fileFinder.AntiFilenamePattern.AddRange(options.AntiWords);
                 var matchingFiles = fileFinder.FindMatches();

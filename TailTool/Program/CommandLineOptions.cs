@@ -10,6 +10,8 @@ namespace TailTool
 
         public List<string> AntiWords { get; set; }
 
+        public List<string> FileNameExtensions { get; set; }
+
         public bool SingleInstance { get; set; }
 
         public bool ShowHelp { get; set; }
@@ -17,11 +19,17 @@ namespace TailTool
         public CommandLineOptions()
         {
             AntiWords = new List<string>();
+            FileNameExtensions = new List<string> { "*.log" };
         }
 
         public void SetAntiWords(string input)
         {
             AntiWords = input.Split(new[]{","}, StringSplitOptions.RemoveEmptyEntries).ToList();
+        }
+
+        public void SetFileNameExtensions(string input)
+        {
+            FileNameExtensions = input.Split(new[] { ",", ";" }, StringSplitOptions.RemoveEmptyEntries).ToList();
         }
     }
 }
