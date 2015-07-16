@@ -14,6 +14,7 @@ namespace TailTool
             OptionSet = new OptionSet {
    	            { "f=|folder=",     v => commandLineArguments.SearchFolder = v },
                 { "a=|antiWords=",  v => { commandLineArguments.SetAntiWords(v); }},
+                { "x=|extensions=", v => { commandLineArguments.SetFileNameExtensions(v); }},
                 { "s|single",       v => commandLineArguments.SingleInstance = true },
    	            { "h|?|help",       v => commandLineArguments.ShowHelp = true },
                };
