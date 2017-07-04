@@ -44,7 +44,7 @@ namespace Kraken.Framework.Core
         {
             if (!Directory.Exists(SearchFolder))
             {
-                Log.Warn("{0} does not exist", SearchFolder);
+                Log.Warn("Folder '{0}' does not exist", SearchFolder);
                 return new List<FileInfo>();
             }
 
