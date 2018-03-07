@@ -30,10 +30,14 @@ namespace Kraken.Framework.Core.Processes
         private static string GetTailerPath()
         {
             string path = null;
-            string tailerSearchPaths = ConfigurationManager.AppSettings["Tailer.SearchPaths"];
-            if (!string.IsNullOrEmpty(tailerSearchPaths))
+            var searchPathEnvironment = Environment.GetEnvironmentVariable("Tailer.SearchPaths");
+            var appConfigEnvironment = ConfigurationManager.AppSettings["Tailer.SearchPaths"];
+
+            var pathToUse = searchPathEnvironment ?? appConfigEnvironment;
+
+            if (!string.IsNullOrEmpty(pathToUse))
             {
-                string[] pathArray = tailerSearchPaths.Split(';');
+                string[] pathArray = pathToUse.Split(';');
                 foreach (var pathCandidate in pathArray)
                 {
                     if (File.Exists(pathCandidate))
