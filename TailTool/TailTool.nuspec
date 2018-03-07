@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>neutmute</authors>
+    <owners>neutmute</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Opens a tailer</description>
+    <projectUrl>https://github.com/neutmute/TailTool</projectUrl>
+  </metadata>
+  <files>
+    <file src="bin\Release\*.*" target="tools" />
+</files>
+</package>
