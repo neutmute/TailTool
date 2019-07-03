@@ -12,7 +12,6 @@ namespace TailTool
 
         static void Main(string[] args)
         {
-            Log.Info("------------------------");
             var parser = new CommandLineParser();
             var options = parser.Parse(args);
 
