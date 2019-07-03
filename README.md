@@ -15,8 +15,7 @@ Default filename extension to match is `*.log` if not specified.
 
 Set the path to your preferred tailer.exe by `Environment` variable.
 
-    [Environment]::SetEnvironmentVariable("BoxStarterInstallDev", "C:\ProgramData\chocolatey\bin\wintail.exe", "Machine") # for reboots
-    [Environment]::SetEnvironmentVariable("BoxStarterInstallDev", "C:\ProgramData\chocolatey\bin\wintail.exe", "Process") # for right now
+    [Environment]::SetEnvironmentVariable("Tailer.SearchPaths", "C:\ProgramData\chocolatey\bin\wintail.exe", "Machine")
 
 or app.config
 
